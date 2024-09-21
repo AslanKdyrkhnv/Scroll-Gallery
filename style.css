@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    
+}
+
+.search, .galleries, .btn-click {
+    background: #eee;
+}
+
+body { 
+    background-color: #eee;
+    margin:0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100v;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.container {
+    margin: 2.8rem auto;
+    overflow-x: hidden;
+    width: 80%;
+    padding: 0 2rem;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-3-row {
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    width: 100%;
+}
+
+
+/* Search Component */
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+}
+
+.input, .btn {
+    border: 0;
+}
+.input:focus, .btn:focus {
+    outline: none;
+}
+
+.search-container {
+    position: relative;
+}
+
+.input {
+    font-size: 1.6rem;
+    padding: 0.8rem 1.2rem;
+    width: 5rem;
+    height: 5rem;
+    transition: width .5s ease, border .5s ease;
+    font-family: inherit;
+    border-radius: 0.8rem;
+}
+
+.search-container.active .input {
+    width: 20rem;
+    border-radius: .8rem 0 0 .8rem;
+   
+}
+
+.btn {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 5rem;
+    height: 5rem;
+    background-color: #fff;
+    border-radius: 0.8rem;
+    transition: transform .5s ease;
+}
+
+.btn i {
+    font-size: 1.8rem;
+}
+
+.search-container.active .btn {
+    transform: translateX(19.8rem);
+    border-radius: 0 0.8rem 0.8rem 0;
+}
+
+/* Galleries Component  */
+
+.galleries {
+    display: flex;
+    gap: 2.4rem;
+    height: 55vh;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.gallery {
+    flex: 0.5;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    border-radius: .8rem;
+    -webkit-transition: all .5s ease-in;
+    
+}
+
+.gallery h3 {
+    position: absolute;
+    left: 2.4rem;
+    bottom: 2rem;
+    font-size: 2.4rem;
+    color: white;
+    font-family: inherit;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity .5s ease;
+}
+
+.gallery.onpage {
+    flex: 6;
+    transform: scale(0.99);
+
+}
+
+
+.gallery.onpage h3 {
+    opacity: 1;
+}
+
+/* button NEXT and PREV */
+.btn-click {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+
+}
+
+.step {
+    padding: 2.8rem 4.8rem;
+    border:none; 
+    background-color: #fff;
+    border-radius: .8rem;
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: .1rem solid #999;
+}
+
+.step:active {
+    transform: scale(0.98);
+}
+
+.step:disabled {
+    cursor: not-allowed;
+}
+
+
+@media (max-width: 768px) {
+    html {
+        font-size: 47%;
+    }
+    .grid-3-row {
+        gap: 2.4rem; 
+    }
+
+    .galleries {
+        gap: 1.6rem;
+        padding: 2rem;
+    }
+    .gallery h3 {
+        font-size: 1.8rem;
+    }
+    .btn-click {
+        gap:1rem;
+    }
+
+    .step {
+        padding: 2.2rem 3.8rem; 
+        font-size: 1.2rem;
+
+    }
+}
+
+@media (max-width: 320px) {
+    html {
+        font-size: 25%;
+    }
+}
